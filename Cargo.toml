@@ -1,0 +1,27 @@
+[package]
+name = "duster"
+version = "1.0.0"
+edition = "2021"
+description = "⚡ A blazingly fast disk usage analyzer with beautiful terminal output"
+license = "MIT"
+authors = ["lll82012"]
+repository = "https://github.com/lll82012/duster"
+readme = "README.md"
+keywords = ["cli", "disk", "filesystem", "tool", "analyzer"]
+categories = ["command-line-utilities", "filesystem"]
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+colored = "2"
+walkdir = "2"
+anyhow = "1"
+bytesize = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+strip = true
